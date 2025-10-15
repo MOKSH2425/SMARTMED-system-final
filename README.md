@@ -19,55 +19,87 @@ If you are developing a production application, we recommend updating the config
 export default defineConfig([
   globalIgnores(['dist']),
   {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+    # SMARTMED — Frontend
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+    This repository contains the frontend for SMARTMED, a prototype healthcare web application built with React, TypeScript, Vite and Tailwind CSS. It's a feature-focused prototype: authentication (mocked), doctor browsing, appointments, and a symptom checker.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    > Note: this is a prototype. The frontend currently uses in-memory/mock implementations for auth and data. Refreshing the page will reset in-memory state.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    ## Tech stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+    - React + TypeScript
+    - Vite (rolldown-vite)
+    - Tailwind CSS + PostCSS (ESM-compatible config)
+    - React Router v7
+    - React Hook Form + Zod for forms
+    - @tanstack/react-query (data caching)
+    - Heroicons for icons
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    ## Quick start
+
+    Prerequisites
+
+    - Node.js 16+ (recommended)
+    - npm
+
+    Install dependencies
+
+    ```powershell
+    npm install
+    ```
+
+    Run development server
+
+    ```powershell
+    npm run dev
+    ```
+
+    Open http://localhost:5173/ in your browser.
+
+    Build for production and preview
+
+    ```powershell
+    npm run build
+    npm run preview
+    ```
+
+    Linting and type checks
+
+    ```powershell
+    npx tsc --noEmit
+    npm run lint
+    ```
+
+    ## Project structure
+
+    - `src/`
+      - `pages/` — App pages (Home, Doctors, Doctor detail, Appointments, Symptom Checker, Auth, Profile)
+      - `components/` — Small UI components and layout (Header, Footer, Button, Card, Badge)
+      - `contexts/` — `AuthContext.tsx` provides a simple auth provider and hooks
+      - `lib/` — small mocks and utilities (e.g. `authMocks.ts`)
+      - `index.css`, `tailwind.config.js`, `postcss.config.js` — styling config
+
+    ## Mocks & Limitations
+
+    - Authentication and data are mocked in `src/lib/authMocks.ts` and `src/contexts/AuthContext.tsx`.
+    - There is no persistence: appointments and auth state are in-memory only.
+
+    ## Recommended next steps
+
+    - Replace the mocked module with real API endpoints and environment variables.
+    - Add E2E tests (Cypress or Playwright) to validate flows like booking.
+    - Add CI (GitHub Actions) to run `npx tsc --noEmit` and `npm run lint` on PRs.
+
+    ## Contributing
+
+    1. Fork or branch from `main`.
+    2. Implement changes and run the dev server locally.
+    3. Open a PR describing the changes and include screenshots where helpful.
+
+    ## License
+
+    This prototype is provided as-is. Add a LICENSE file to apply a license.
+
+    ---
+
+    If you want, I can add a GitHub Actions workflow that runs typecheck and lint on push/PRs and push it to the repo.
