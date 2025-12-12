@@ -4,10 +4,11 @@ import Footer from './Footer';
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-smartmed-50">
+      <a href="#main-content" className="skip-link sr-only focus:not-sr-only">Skip to content</a>
       <Header />
-      <main className="flex-grow">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+      <main id="main-content" className="flex-grow">
+        <div className="container py-10">
           <Outlet />
         </div>
       </main>
