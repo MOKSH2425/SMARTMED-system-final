@@ -43,9 +43,9 @@ export default function BookAppointmentPage() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-neutral-900">Book Appointment</h1>
-        <p className="text-neutral-600 mt-2">Fill in your details to confirm your appointment</p>
+      <div className="mb-8 bg-gradient-to-r from-smartmed-50 to-purple-50 p-6 rounded-lg border border-smartmed-100">
+        <h1 className="text-3xl font-bold text-smartmed-900">Book Appointment</h1>
+        <p className="text-smartmed-600 mt-2">Fill in your details to confirm your appointment with {doctorName}</p>
       </div>
 
       <div className="bg-white rounded-lg shadow-sm p-6 mb-6">

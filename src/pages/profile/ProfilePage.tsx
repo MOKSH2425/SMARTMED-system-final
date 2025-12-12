@@ -52,9 +52,9 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-neutral-900">My Profile</h1>
-        <p className="text-neutral-600 mt-2">View and manage your personal information</p>
+      <div className="mb-8 bg-gradient-to-r from-smartmed-50 via-purple-50 to-coral-50 p-6 rounded-lg border border-smartmed-100">
+        <h1 className="text-3xl font-bold text-smartmed-900">My Profile</h1>
+        <p className="text-smartmed-600 mt-2">View and manage your personal information and medical history</p>
       </div>
 
       {successMessage && (
@@ -65,31 +65,31 @@ export default function ProfilePage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="space-y-6">
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-gradient-to-br from-smartmed-50 to-purple-50 rounded-lg shadow-sm p-6 border border-smartmed-100">
             <div className="flex items-center space-x-4">
-              <div className="h-20 w-20 rounded-full bg-smartmed-50 flex items-center justify-center">
-                <UserIcon className="h-12 w-12 text-smartmed-600" />
+              <div className="h-20 w-20 rounded-full bg-gradient-to-br from-smartmed-400 to-purple-400 flex items-center justify-center">
+                <UserIcon className="h-12 w-12 text-white" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-neutral-900">{mockUserProfile.name}</h2>
-                <p className="text-neutral-600">{mockUserProfile.email}</p>
+                <h2 className="text-xl font-semibold text-smartmed-900">{mockUserProfile.name}</h2>
+                <p className="text-smartmed-600">{mockUserProfile.email}</p>
               </div>
             </div>
           </div>
 
-          <nav className="bg-white rounded-lg shadow-sm">
-            <a href="#personal" className="block px-4 py-2 text-smartmed-700 border-l-4 border-transparent hover:border-l-4 hover:border-smartmed-300">Personal Information</a>
-            <a href="#security" className="block px-4 py-2 text-neutral-600 hover:bg-neutral-50">Security</a>
-            <a href="#medical" className="block px-4 py-2 text-neutral-600 hover:bg-neutral-50">Medical History</a>
-            <a href="#notifications" className="block px-4 py-2 text-neutral-600 hover:bg-neutral-50">Notifications</a>
+          <nav className="bg-white rounded-lg shadow-sm border border-smartmed-100">
+            <a href="#personal" className="block px-4 py-3 text-smartmed-700 border-l-4 border-smartmed-500 bg-smartmed-50/50 hover:bg-smartmed-100/50 font-medium">Personal Information</a>
+            <a href="#security" className="block px-4 py-3 text-neutral-600 border-l-4 border-transparent hover:border-smartmed-300 hover:bg-neutral-50">Security</a>
+            <a href="#medical" className="block px-4 py-3 text-neutral-600 border-l-4 border-transparent hover:border-smartmed-300 hover:bg-neutral-50">Medical History</a>
+            <a href="#notifications" className="block px-4 py-3 text-neutral-600 border-l-4 border-transparent hover:border-smartmed-300 hover:bg-neutral-50">Notifications</a>
           </nav>
         </div>
 
         <div className="md:col-span-2">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg shadow-sm p-6 border-t-4 border-t-smartmed-500">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-lg font-semibold">Personal Information</h3>
+                <h3 className="text-lg font-semibold text-smartmed-900">Personal Information</h3>
                 <button
                   type="button"
                   onClick={() => setIsEditing(!isEditing)}

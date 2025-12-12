@@ -65,18 +65,18 @@ export default function AppointmentsPage() {
 
   return (
     <div>
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-neutral-900">My Appointments</h1>
-        <p className="text-neutral-600 mt-2">View and manage your appointments</p>
+      <div className="mb-8 bg-gradient-to-r from-smartmed-50 to-coral-50 p-6 rounded-lg border border-smartmed-100">
+        <h1 className="text-3xl font-bold text-smartmed-900">My Appointments</h1>
+        <p className="text-smartmed-600 mt-2">View and manage your upcoming and past appointments</p>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm divide-y">
+      <div className="bg-white rounded-lg shadow-sm divide-y border border-smartmed-100">
         {appointments?.map((appointment) => (
-          <div key={appointment.id} className="p-6">
+          <div key={appointment.id} className="p-6 hover:bg-smartmed-50/30 transition-colors border-l-4 border-l-smartmed-400">
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-lg font-semibold text-neutral-900">{appointment.doctorName}</h3>
-                <p className="text-neutral-600">{appointment.specialization}</p>
+                <h3 className="text-lg font-semibold text-smartmed-900">{appointment.doctorName}</h3>
+                <p className="text-smartmed-600">{appointment.specialization}</p>
               </div>
               <span className={`px-3 py-1 rounded-full text-sm font-medium capitalize ${getStatusColor(appointment.status)}`}>
                 {appointment.status}

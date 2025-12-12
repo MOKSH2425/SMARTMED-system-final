@@ -6,10 +6,10 @@ export default function HomePage() {
 
   return (
     <div className="space-y-12">
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white rounded-lg shadow-sm p-8">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-gradient-to-br from-smartmed-50 via-purple-50 to-coral-50 rounded-lg shadow-sm p-8 border border-smartmed-100">
         <div>
-          <h1 className="text-3xl md:text-4xl font-extrabold text-neutral-900">Healthcare made simple for everyone</h1>
-          <p className="mt-4 text-neutral-600 max-w-xl">Find trusted doctors nearby, book appointments online, and check symptoms — all in one secure place. Fast, friendly, and designed for real patients.</p>
+          <h1 className="text-3xl md:text-4xl font-extrabold text-smartmed-900\">Healthcare made simple for everyone</h1>
+          <p className="mt-4 text-smartmed-600 max-w-xl\">Find trusted doctors nearby, book appointments online, and check symptoms — all in one secure place. Fast, friendly, and designed for real patients.</p>
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Button variant="primary" onClick={() => navigate('/doctors')}>Find Doctors</Button>
@@ -18,13 +18,13 @@ export default function HomePage() {
           </div>
 
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-smartmed-50 p-4 rounded-md">
-              <h4 className="text-sm font-semibold text-smartmed-700">Trusted professionals</h4>
-              <p className="text-sm text-neutral-600 mt-1">Verified doctors with ratings and specialties.</p>
+            <div className="bg-gradient-to-br from-smartmed-50 to-blue-50 p-4 rounded-md border border-smartmed-200">
+              <h4 className="text-sm font-semibold text-smartmed-700">✓ Trusted professionals</h4>
+              <p className="text-sm text-smartmed-600 mt-1">Verified doctors with ratings and specialties.</p>
             </div>
-            <div className="bg-neutral-50 p-4 rounded-md">
-              <h4 className="text-sm font-semibold text-neutral-800">Secure & Private</h4>
-              <p className="text-sm text-neutral-600 mt-1">HIPAA-alike privacy practices and secure messaging.</p>
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-4 rounded-md border border-purple-200">
+              <h4 className="text-sm font-semibold text-purple-700">🔒 Secure & Private</h4>
+              <p className="text-sm text-purple-600 mt-1">HIPAA-alike privacy practices and secure messaging.</p>
             </div>
           </div>
         </div>

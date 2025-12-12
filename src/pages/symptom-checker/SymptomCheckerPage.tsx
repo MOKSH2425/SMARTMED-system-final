@@ -87,9 +87,9 @@ export default function SymptomCheckerPage() {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-neutral-900">Symptom Checker</h1>
-        <p className="text-neutral-600 mt-2">Answer a few questions to get instant health guidance</p>
+      <div className="mb-8 bg-gradient-to-r from-coral-50 to-smartmed-50 p-6 rounded-lg border border-coral-100">
+        <h1 className="text-3xl font-bold text-coral-900">Symptom Checker</h1>
+        <p className="text-coral-600 mt-2">Answer a few questions to get instant health guidance and recommendations</p>
       </div>
 
       <div className="bg-smartmed-50 border border-smartmed-100 rounded-lg p-4 mb-8">
