@@ -17,7 +17,7 @@ const mockDoctors: Doctor[] = [
     specialization: "Cardiologist",
     experience: 12,
     rating: 4.8,
-    image: "https://placekitten.com/200/200", // Placeholder image
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=0a3b5b4b1e5f6d7a1d2c3e4f5a6b7c8d",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const mockDoctors: Doctor[] = [
     specialization: "Pediatrician",
     experience: 8,
     rating: 4.9,
-    image: "https://placekitten.com/201/201",
+    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1a2b3c4d5e6f7g8h9i0j",
   },
   // Add more mock doctors as needed
 ];
@@ -39,7 +39,7 @@ export default function DoctorsPage() {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-smartmed-600"></div>
       </div>
     );
   }
@@ -55,10 +55,8 @@ export default function DoctorsPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold">Find a Doctor</h1>
-        <p className="text-gray-600 mt-2">
-          Browse through our list of experienced healthcare professionals
-        </p>
+        <h1 className="text-3xl font-bold text-neutral-900">Find a Doctor</h1>
+        <p className="text-neutral-600 mt-2">Browse through our list of experienced healthcare professionals</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -76,20 +74,20 @@ export default function DoctorsPage() {
                   className="h-16 w-16 rounded-full object-cover"
                 />
                 <div>
-                  <h2 className="text-lg font-semibold text-gray-900">
+                  <h2 className="text-lg font-semibold text-neutral-900">
                     {doctor.name}
                   </h2>
-                  <p className="text-sm text-gray-500">{doctor.specialization}</p>
+                  <p className="text-sm text-neutral-600">{doctor.specialization}</p>
                 </div>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <span className="text-gray-500">Experience:</span>
-                  <p className="font-medium">{doctor.experience} years</p>
+                  <span className="text-neutral-500">Experience:</span>
+                  <p className="font-medium text-neutral-900">{doctor.experience} years</p>
                 </div>
                 <div>
-                  <span className="text-gray-500">Rating:</span>
-                  <p className="font-medium">{doctor.rating}/5</p>
+                  <span className="text-neutral-500">Rating:</span>
+                  <p className="font-medium text-neutral-900">{doctor.rating}/5</p>
                 </div>
               </div>
             </div>

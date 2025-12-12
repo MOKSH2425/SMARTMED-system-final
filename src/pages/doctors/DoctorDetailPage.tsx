@@ -71,7 +71,7 @@ export default function DoctorDetailPage() {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-smartmed-600"></div>
       </div>
     );
   }
@@ -94,29 +94,29 @@ export default function DoctorDetailPage() {
             className="h-32 w-32 rounded-lg object-cover"
           />
           <div className="flex-1">
-            <h1 className="text-2xl font-bold text-gray-900">{doctor.name}</h1>
-            <p className="text-lg text-gray-600">{doctor.specialization}</p>
+            <h1 className="text-2xl font-bold text-neutral-900">{doctor.name}</h1>
+            <p className="text-lg text-neutral-600">{doctor.specialization}</p>
             <div className="mt-4 grid grid-cols-3 gap-4">
               <div>
-                <div className="flex items-center text-gray-500">
+                <div className="flex items-center text-neutral-500">
                   <ClockIcon className="h-5 w-5 mr-2" />
                   Experience
                 </div>
-                <p className="font-medium">{doctor.experience} years</p>
+                <p className="font-medium text-neutral-900">{doctor.experience} years</p>
               </div>
               <div>
-                <div className="flex items-center text-gray-500">
+                <div className="flex items-center text-neutral-500">
                   <StarIcon className="h-5 w-5 mr-2" />
                   Rating
                 </div>
-                <p className="font-medium">{doctor.rating}/5</p>
+                <p className="font-medium text-neutral-900">{doctor.rating}/5</p>
               </div>
               <div>
-                <div className="flex items-center text-gray-500">
+                <div className="flex items-center text-neutral-500">
                   <CalendarIcon className="h-5 w-5 mr-2" />
                   Availability
                 </div>
-                <p className="font-medium">{doctor.availability.length} days/week</p>
+                <p className="font-medium text-neutral-900">{doctor.availability.length} days/week</p>
               </div>
             </div>
           </div>
