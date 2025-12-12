@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { UserIcon } from '@heroicons/react/24/outline';
+import Button from '../../components/ui/Button';
 
 const profileSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -51,70 +52,48 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold">My Profile</h1>
-        <p className="text-gray-600 mt-2">
-          View and manage your personal information
-        </p>
+      <div className="mb-8 bg-gradient-to-r from-smartmed-50 via-purple-50 to-coral-50 p-6 rounded-lg border border-smartmed-100">
+        <h1 className="text-3xl font-bold text-smartmed-900">My Profile</h1>
+        <p className="text-smartmed-600 mt-2">View and manage your personal information and medical history</p>
       </div>
 
       {successMessage && (
-        <div className="mb-6 p-4 bg-green-50 rounded-lg">
-          <p className="text-green-800">{successMessage}</p>
+        <div role="status" aria-live="polite" className="mb-6 p-4 bg-smartmed-50 rounded-lg">
+          <p className="text-smartmed-700">{successMessage}</p>
         </div>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="space-y-6">
-          <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="bg-gradient-to-br from-smartmed-50 to-purple-50 rounded-lg shadow-sm p-6 border border-smartmed-100">
             <div className="flex items-center space-x-4">
-              <div className="h-20 w-20 rounded-full bg-gray-200 flex items-center justify-center">
-                <UserIcon className="h-12 w-12 text-gray-400" />
+              <div className="h-20 w-20 rounded-full bg-gradient-to-br from-smartmed-400 to-purple-400 flex items-center justify-center">
+                <UserIcon className="h-12 w-12 text-white" />
               </div>
               <div>
-                <h2 className="text-xl font-semibold">{mockUserProfile.name}</h2>
-                <p className="text-gray-500">{mockUserProfile.email}</p>
+                <h2 className="text-xl font-semibold text-smartmed-900">{mockUserProfile.name}</h2>
+                <p className="text-smartmed-600">{mockUserProfile.email}</p>
               </div>
             </div>
           </div>
 
-          <nav className="bg-white rounded-lg shadow-sm">
-            <a
-              href="#personal"
-              className="block px-4 py-2 text-primary-600 border-l-4 border-primary-600"
-            >
-              Personal Information
-            </a>
-            <a
-              href="#security"
-              className="block px-4 py-2 text-gray-600 hover:bg-gray-50"
-            >
-              Security
-            </a>
-            <a
-              href="#medical"
-              className="block px-4 py-2 text-gray-600 hover:bg-gray-50"
-            >
-              Medical History
-            </a>
-            <a
-              href="#notifications"
-              className="block px-4 py-2 text-gray-600 hover:bg-gray-50"
-            >
-              Notifications
-            </a>
+          <nav className="bg-white rounded-lg shadow-sm border border-smartmed-100">
+            <a href="#personal" className="block px-4 py-3 text-smartmed-700 border-l-4 border-smartmed-500 bg-smartmed-50/50 hover:bg-smartmed-100/50 font-medium">Personal Information</a>
+            <a href="#security" className="block px-4 py-3 text-neutral-600 border-l-4 border-transparent hover:border-smartmed-300 hover:bg-neutral-50">Security</a>
+            <a href="#medical" className="block px-4 py-3 text-neutral-600 border-l-4 border-transparent hover:border-smartmed-300 hover:bg-neutral-50">Medical History</a>
+            <a href="#notifications" className="block px-4 py-3 text-neutral-600 border-l-4 border-transparent hover:border-smartmed-300 hover:bg-neutral-50">Notifications</a>
           </nav>
         </div>
 
         <div className="md:col-span-2">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div className="bg-white rounded-lg shadow-sm p-6 border-t-4 border-t-smartmed-500">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-lg font-semibold">Personal Information</h3>
+                <h3 className="text-lg font-semibold text-smartmed-900">Personal Information</h3>
                 <button
                   type="button"
                   onClick={() => setIsEditing(!isEditing)}
-                  className="text-sm text-primary-600 hover:text-primary-700"
+                  className="text-sm text-smartmed-700 hover:text-smartmed-800"
                 >
                   {isEditing ? 'Cancel' : 'Edit'}
                 </button>
@@ -122,14 +101,14 @@ export default function ProfilePage() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="name" className="block text-sm font-medium text-neutral-800">
                     Full Name
                   </label>
                   <input
                     {...register('name')}
                     type="text"
                     disabled={!isEditing}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 disabled:bg-gray-50"
+                    className="mt-1 block w-full rounded-md border border-neutral-200 shadow-sm px-3 py-2 focus:border-smartmed-300 focus:ring-smartmed-300 disabled:bg-neutral-50"
                   />
                   {errors.name && (
                     <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
@@ -137,14 +116,14 @@ export default function ProfilePage() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="email" className="block text-sm font-medium text-neutral-800">
                     Email Address
                   </label>
                   <input
                     {...register('email')}
                     type="email"
                     disabled={!isEditing}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 disabled:bg-gray-50"
+                    className="mt-1 block w-full rounded-md border border-neutral-200 shadow-sm px-3 py-2 focus:border-smartmed-300 focus:ring-smartmed-300 disabled:bg-neutral-50"
                   />
                   {errors.email && (
                     <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
@@ -152,14 +131,14 @@ export default function ProfilePage() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="phone" className="block text-sm font-medium text-neutral-800">
                     Phone Number
                   </label>
                   <input
                     {...register('phone')}
                     type="tel"
                     disabled={!isEditing}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 disabled:bg-gray-50"
+                    className="mt-1 block w-full rounded-md border border-neutral-200 shadow-sm px-3 py-2 focus:border-smartmed-300 focus:ring-smartmed-300 disabled:bg-neutral-50"
                   />
                   {errors.phone && (
                     <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
@@ -167,14 +146,14 @@ export default function ProfilePage() {
                 </div>
 
                 <div>
-                  <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="dateOfBirth" className="block text-sm font-medium text-neutral-800">
                     Date of Birth
                   </label>
                   <input
                     {...register('dateOfBirth')}
                     type="date"
                     disabled={!isEditing}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 disabled:bg-gray-50"
+                    className="mt-1 block w-full rounded-md border border-neutral-200 shadow-sm px-3 py-2 focus:border-smartmed-300 focus:ring-smartmed-300 disabled:bg-neutral-50"
                   />
                   {errors.dateOfBirth && (
                     <p className="mt-1 text-sm text-red-600">{errors.dateOfBirth.message}</p>
@@ -182,13 +161,13 @@ export default function ProfilePage() {
                 </div>
 
                 <div>
-                  <label htmlFor="gender" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="gender" className="block text-sm font-medium text-neutral-800">
                     Gender
                   </label>
                   <select
                     {...register('gender')}
                     disabled={!isEditing}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 disabled:bg-gray-50"
+                    className="mt-1 block w-full rounded-md border border-neutral-200 shadow-sm px-3 py-2 focus:border-smartmed-300 focus:ring-smartmed-300 disabled:bg-neutral-50"
                   >
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -200,13 +179,13 @@ export default function ProfilePage() {
                 </div>
 
                 <div>
-                  <label htmlFor="bloodType" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="bloodType" className="block text-sm font-medium text-neutral-800">
                     Blood Type
                   </label>
                   <select
                     {...register('bloodType')}
                     disabled={!isEditing}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 disabled:bg-gray-50"
+                    className="mt-1 block w-full rounded-md border border-neutral-200 shadow-sm px-3 py-2 focus:border-smartmed-300 focus:ring-smartmed-300 disabled:bg-neutral-50"
                   >
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -225,17 +204,17 @@ export default function ProfilePage() {
             </div>
 
             <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-lg font-semibold mb-6">Medical Information</h3>
+              <h3 className="text-lg font-semibold mb-6 text-neutral-900">Medical Information</h3>
               <div className="space-y-6">
                 <div>
-                  <label htmlFor="allergies" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="allergies" className="block text-sm font-medium text-neutral-800">
                     Allergies
                   </label>
                   <textarea
                     {...register('allergies')}
                     rows={3}
                     disabled={!isEditing}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 disabled:bg-gray-50"
+                    className="mt-1 block w-full rounded-md border border-neutral-200 shadow-sm px-3 py-2 focus:border-smartmed-300 focus:ring-smartmed-300 disabled:bg-neutral-50"
                     placeholder="List any allergies..."
                   />
                 </div>
@@ -257,12 +236,7 @@ export default function ProfilePage() {
 
             {isEditing && (
               <div className="flex justify-end">
-                <button
-                  type="submit"
-                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-                >
-                  Save Changes
-                </button>
+                <Button type="submit">Save Changes</Button>
               </div>
             )}
           </form>

@@ -1,3 +1,52 @@
+# SMARTMED Frontend — Redesigned
+
+This repository contains the frontend for SMARTMED, redesigned with a modern, vibrant UI.
+
+What I changed
+- Introduced a new landing page (`/`) with a bold hero and CTAs.
+- Reworked global design tokens (teal `smartmed` palette + `coral` accent) in `tailwind.config.js`.
+- Added gradient and coral button variants — use `variant="gradient"` for hero CTAs.
+- Rebuilt core pages (Home, Doctors, Appointments, Auth, Profile, Symptom Checker) to match the new design language.
+- Accessibility improvements: skip link, `aria-live` / `role="status"` for dynamic messages, better focus outlines.
+- Added a simple landing illustration at `src/assets/landing-illustration.svg`.
+
+Run locally
+```powershell
+cd 'c:\Users\shahm\OneDrive\Desktop\DE_FINAL\SMART24\smartmed-frontend'
+npm install
+npm run dev
+```
+
+Notes
+- I started the Vite dev server during the session — open the URL printed by Vite (typically http://localhost:5173).
+- There are a couple of moderate vulnerabilities reported by `npm audit`. You can run `npm audit fix` to attempt automatic remediation; I've run it for you in this session and will report back.
+
+Suggested commit message / PR title
+```
+feat(ui): redesign site — landing page, new palette, gradient CTAs, accessibility improvements
+```
+
+If you'd like, I can now:
+- Polish hero illustration and add animations,
+- Continue accessibility pass (aria attributes, keyboard traps),
+- Create a PR and push changes (if you want me to prepare a commit message and instructions),
+- Run further dependency updates (`npm audit fix --force`) — note `--force` may upgrade major versions.
+
+Quick commit & PR steps
+1. Create a branch and commit changes:
+```bash
+git checkout -b feat/ui-landing-redesign
+git add .
+git commit -m "feat(ui): redesign site — landing page, new palette, gradient CTAs, accessibility improvements"
+```
+2. Push and open a PR (example for origin):
+```bash
+git push -u origin feat/ui-landing-redesign
+# Then open a pull request on GitHub with the title above and a short description.
+```
+
+If you want, I can prepare the patch as a single commit or split into multiple commits (layout, pages, accessibility, assets). Tell me which you prefer and I will prepare a suggested commit plan.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
